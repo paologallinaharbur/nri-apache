@@ -1,4 +1,4 @@
-FROM golang:1.11 as builder
+FROM golang:1.13 as builder
 ARG CGO_ENABLED=0
 WORKDIR /go/src/github.com/newrelic/nri-apache
 COPY . .

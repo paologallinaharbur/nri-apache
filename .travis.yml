@@ -8,19 +8,12 @@ service:
 
 jobs:
   include:
-    - stage: testing Linux
+    - stage: testing Linux and Windows
       os: linux
-      script: env GO111MODULE=on make clean validate 
-    - # stage name not required, will continue to use `test`
-      os: linux
-      script: env GO111MODULE=on make clean test 
-    - # stage name not required, will continue to use `test`
       script: env GO111MODULE=on make clean integration-test
+    - 
       os: linux
-    - stage: testing Windows
+      script: env GO111MODULE=on make clean validate test
+    - 
       os: windows
-      script: env GO111MODULE=on make clean validate 
-    - # stage name not required, will continue to use `test`
-      os: windows
-      script: env GO111MODULE=on make clean test 
-
+      script: go test ./src/

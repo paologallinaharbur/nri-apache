@@ -3,4 +3,7 @@ language: go
 go:
 - "1.13"
 
-script: make clean validate test integration-test
+service:
+- docker
+
+script: env GO111MODULE=on make clean validate test integration-test
